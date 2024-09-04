@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Password generator using JavaScript</title>
+</head>
+<!-- created by Code With Bishal - www.codewithbishal.com
+-->
+<body>
+<label> 
+<input type="text" placeholder=" " disabled>
+<p>Password</p>
+</label>
+<button class="genpass" id="passgen" title="Click to Generate Password">Generate Password</button>
+</body>
+</html>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-family: "Potta One", sans-serif;
+}
+label {
+position: relative;
+}
+label input {
+font-family: "Potta One", sans-serif;
+font-size: 1rem;
+color: black;
+background: transparent;
+
+padding: 1rem 1.2rem;
+min-width: 24rem;
+
+border-radius: 0.2rem;
+border: 2px solid green;
+
+transition: border-color 0.2s;
+}
+label p {
+color: blue;
+font-size: 1rem;
+user-select: none;
+
+position: absolute;
+top: 30%;
+transform: translateY(-90%);
+
+margin-left: 0.8rem;
+padding: 0 0.4rem;
+
+background: white;
+color: black;
+
+transition: top 0.2s, font-size 0.2s, color 0.2s;
+}
+label input:not(:placeholder-shown) {
+border-color: #f80743;
+}
+label input:not(:placeholder-shown) + p {
+top: 0;
+font-size: 0.9rem;
+color: #blue;
+}
+.genpass {
+font-family: Potta One;
+font-size: 1rem;
+margin-top: 1.2rem;
+padding: 1rem 1.2rem;
+min-width: 24rem;
+transition: opacity 0.2s;
+background: rgba( 255, 255, 255, 0.15 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.genpass:focus,.genpass{
+border: none;
+outline: none;
+}
+.genpass:hover {
+cursor: pointer;
+opacity: 0.6;
+}
+@media (max-width: 700px) {
+.genpass{
+padding-top: 5%;
+}
+}
+</style>
+<script>
+  const input = document.querySelector("input");
+const button = document.querySelector("#passgen");
+function GeneratePassword(length = 8) {
+const randomPassword =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!%^&*()_+=-";
+
+  let password = "";
+  for (let i = 0; i < length; ++i) {
+    let at = Math.floor(Math.random() * (randomPassword.length + 1));
+    password += randomPassword.charAt(at);
+  }
+  return password;
+}
+button.addEventListener("click", () => {
+  input.value = GeneratePassword(8);
+});
+</script>

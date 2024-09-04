@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* ---------Scroll Bar--------*/
+::-webkit-scrollbar{
+  width: 15px;    /* Our width*/
+}
+::-webkit-scrollbar-track{
+  background: #d1e5ff;  /*Our background which can be set for the browser default color */
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#642bff, #ff0000)
+}
+/*Our scrollbar thumb ("The Part you click on") color */
