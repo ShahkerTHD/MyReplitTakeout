@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My IP Address</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <pre>
+___  ___     ___________  ___      _     _                   
+|  \/  |    |_   _| ___ \/ _ \    | |   | |                  
+| .  . |_   _ | | | |_/ / /_\ \ __| | __| |_ __ ___  ___ ___ 
+| |\/| | | | || | |  __/|  _  |/ _` |/ _` | '__/ _ \/ __/ __|
+| |  | | |_| || |_| |   | | | | (_| | (_| | | |  __/\__ \__ \
+\_|  |_/\__, \___/\_|   \_| |_/\__,_|\__,_|_|  \___||___/___/
+         __/ |                                               
+        |___/    
+</pre>
+
+
+
+
+  <p><strong>IP Address:</strong> <span id="ip"></span></p>
+  <p><strong>Location:</strong> <span id="location"></span></p>
+  <p><strong>Service Provider:</strong> <span id="isp"></span></p>
+
+  <script>
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("ip").innerHTML = data.ip;
+        document.getElementById("location").innerHTML = data.city + ', ' + data.region + ', ' + data.country_name;
+        document.getElementById("isp").innerHTML = data.org;
+      })
+      .catch(error => console.error(error));
+  </script>
+
+  <script>
+    function updateTime() {
+      var today = new Date();
+      var hour = today.getHours();
+      var minute = today.getMinutes();
+      var second = today.getSeconds();
+      var meridian = hour >= 12 ? "PM" : "AM";
+      hour = hour % 12 || 12;
+      minute = minute < 10 ? "0" + minute : minute;
+      second = second < 10 ? "0" + second : second;
+      var timeString =
+        hour + ":" + minute + ":" + second + " " + meridian;
+      document.getElementById("clock").innerHTML = timeString;
+    }
+    setInterval(updateTime, 1000);
+  </script>
+
+  <p id="clock"></p>
+  <div class="cursor"></div>
+  <div id="text"></div>
+
+  <div class="content">
+    <h2 class="text" data-text="Access: Granted">
+      Access: Sudo
+    </h2>
+</body>
+
+</html>
