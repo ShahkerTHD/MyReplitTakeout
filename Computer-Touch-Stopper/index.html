@@ -1,0 +1,76 @@
+<html>
+<head>
+   <h1>chrome://restart</h1>
+
+  
+  
+  <p>If I have left this chromebook pls dont touch it or face the power of...<p>
+
+     <meta charset="utf-8">
+<title>Dont Touch</title>
+ 
+<style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
+</head>
+ 
+<body>
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+
+  
+  <script type="text/javascript">
+function addEvent(obj, evt, fn) {
+    if (obj.addEventListener) {
+        obj.addEventListener(evt, fn, false);
+    }
+    else if (obj.attachEvent) {
+        obj.attachEvent("on" + evt, fn);
+    }
+}
+addEvent(window,"load",function(e) {
+    addEvent(document, "mouseout", function(e) {
+        e = e ? e : window.event;
+        var from = e.relatedTarget || e.toElement;
+        if (!from || from.nodeName == "HTML") {
+            // stop your drag event here
+            // for now we can just use an alert
+            alert("🤣 LMAO bruh tried");
+  window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+
+
+
+          var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+
+      
+    });
+}
+          
+        }
+    });
+});
+</script>
+</head>
+<body></body>
+</html>
